@@ -4,7 +4,7 @@ localmsg
 Cross browser tab messaging.
 
 localmsg allows you to send a message to all the *other* browser tabs
-and windows open on your application, in the same browser.
+and windows open on your application in the same browser.
 
 This works entirely within the browser, so it does not rely on the
 Internet or use the connection to the Meteor server.

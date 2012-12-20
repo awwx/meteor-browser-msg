@@ -29,7 +29,7 @@
     var arg, name, val, _base, _ref;
     if (event.key === localStorage_message_key) {
       val = event.newValue;
-      _ref = val.substr(val.indexOf(':') + 1), name = _ref[0], arg = 2 <= _ref.length ? __slice.call(_ref, 1) : [];
+      _ref = JSON.parse(val.substr(val.indexOf(':') + 1)), name = _ref[0], arg = 2 <= _ref.length ? __slice.call(_ref, 1) : [];
       if (typeof (_base = Meteor.LocalMsg._listeners)[name] === "function") {
         _base[name].apply(_base, arg);
       }

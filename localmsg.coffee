@@ -18,7 +18,7 @@ window.addEventListener('storage',
   ((event) ->
     if event.key is localStorage_message_key
       val = event.newValue
-      [name, arg...] = val.substr(val.indexOf(':') + 1)
+      [name, arg...] = JSON.parse(val.substr(val.indexOf(':') + 1))
       Meteor.LocalMsg._listeners[name]?(arg...)
       undefined
   ),
