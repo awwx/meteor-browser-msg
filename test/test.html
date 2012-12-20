@@ -1,0 +1,34 @@
+<head>
+  <title>localmsg test</title>
+</head>
+
+<body>
+  {{>route}}
+</body>
+
+<template name="route">
+  {{#if show_home}}
+    {{>test_localmsg_home}}
+  {{/if}}
+  {{#if show_child1}}
+    {{>test_localmsg_child1}}
+  {{/if}}
+</template>
+
+<template name="test_localmsg_home">
+  <h1>Test localmsg</h1>
+
+  <div>
+    Test status:
+    <span id="test-status">{{test_status}}</span>
+  </div>
+
+  <br>
+
+  <div><a href="/child1" target="_blank">Begin</a></div>
+
+</template>
+
+<template name="test_localmsg_child1">
+  <p>child 1</p>
+</template>
