@@ -1,0 +1,8 @@
+{
+  "name": "localmsg",
+  "description": "cross browser tab messaging",
+  "homepage": "https://github.com/awwx/meteor-localmsg",
+  "author": "Andrew Wilcox",
+  "version": "0.0.1",
+  "git": "https://github.com/awwx/meteor-localmsg.git"
+}
