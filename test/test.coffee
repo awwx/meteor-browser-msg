@@ -14,7 +14,7 @@ if Meteor.isClient
   Template.route.show_child1 = -> Session.equals('show', 'child1')
 
   Session.set('test_status', 'wait')
-  Template.test_localmsg_home.test_status = -> Session.get('test_status')
+  Template.test_browsermsg_home.test_status = -> Session.get('test_status')
 
   parent_start = false
   parent_startup = ->
@@ -28,7 +28,7 @@ if Meteor.isClient
     running = true
     timeout_set = false
 
-    Meteor.LocalMsg.listen
+    Meteor.BrowserMsg.listen
       step: (i) ->
 
         return unless running
@@ -48,7 +48,7 @@ if Meteor.isClient
         if i is next_expected
           if i is 20
             running = false
-            localStorage.setItem('test_localmsg.child1.close', 'true')
+            localStorage.setItem('test_browsermsg.child1.close', 'true')
             Session.set('test_status', 'successful')
           else
             ++next_expected
@@ -65,7 +65,7 @@ if Meteor.isClient
     child1_start = true
 
     storage_change = (key, val) ->
-      if key is 'test_localmsg.child1.close' and val is 'true'
+      if key is 'test_browsermsg.child1.close' and val is 'true'
         # IE will popup a dialog asking whether to close the window.
         # When running in Saucelabs, we use their popup handler to take
         # care of it by setting disable-popup-handler to false.
@@ -78,10 +78,10 @@ if Meteor.isClient
     )
 
     for i in [1..20]
-      Meteor.LocalMsg.send 'step', i
+      Meteor.BrowserMsg.send 'step', i
 
-  Template.test_localmsg_home.created = ->
+  Template.test_browsermsg_home.created = ->
     parent_startup()
 
-  Template.test_localmsg_child1.created = ->
+  Template.test_browsermsg_child1.created = ->
     child1_startup()

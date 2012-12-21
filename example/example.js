@@ -2,14 +2,14 @@
 (function() {
 
   if (Meteor.isClient) {
-    Meteor.LocalMsg.listen({
+    Meteor.BrowserMsg.listen({
       shout: function(say) {
         return alert(say);
       }
     });
     Template.hello.events({
       'click #shout': function() {
-        return Meteor.LocalMsg.send('shout', $('#say').val());
+        return Meteor.BrowserMsg.send('shout', $('#say').val());
       }
     });
   }

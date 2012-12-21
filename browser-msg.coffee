@@ -1,6 +1,6 @@
-localStorage_message_key = 'Meteor.LocalMsg.msg'
+localStorage_message_key = 'Meteor.BrowserMsg.msg'
 
-Meteor.LocalMsg =
+Meteor.BrowserMsg =
 
   _listeners: {}
 
@@ -19,7 +19,7 @@ window.addEventListener('storage',
     if event.key is localStorage_message_key
       val = event.newValue
       [name, arg...] = JSON.parse(val.substr(val.indexOf(':') + 1))
-      Meteor.LocalMsg._listeners[name]?(arg...)
+      Meteor.BrowserMsg._listeners[name]?(arg...)
       undefined
   ),
   false

@@ -1,8 +1,8 @@
 {
-  "name": "localmsg",
+  "name": "browser-msg",
   "description": "cross browser tab messaging",
-  "homepage": "https://github.com/awwx/meteor-localmsg",
+  "homepage": "https://github.com/awwx/meteor-browser-msg#readme",
   "author": "Andrew Wilcox",
-  "version": "0.0.1",
-  "git": "https://github.com/awwx/meteor-localmsg.git"
+  "version": "0.0.2",
+  "git": "https://github.com/awwx/meteor-browser-msg.git"
 }

@@ -1,5 +1,5 @@
 <head>
-  <title>localmsg test</title>
+  <title>browser-msg test</title>
 </head>
 
 <body>
@@ -8,15 +8,15 @@
 
 <template name="route">
   {{#if show_home}}
-    {{>test_localmsg_home}}
+    {{>test_browsermsg_home}}
   {{/if}}
   {{#if show_child1}}
-    {{>test_localmsg_child1}}
+    {{>test_browsermsg_child1}}
   {{/if}}
 </template>
 
-<template name="test_localmsg_home">
-  <h1>Test localmsg</h1>
+<template name="test_browsermsg_home">
+  <h1>Test browser-msg</h1>
 
   <div>
     Test status:
@@ -29,6 +29,6 @@
 
 </template>
 
-<template name="test_localmsg_child1">
+<template name="test_browsermsg_child1">
   <p>child 1</p>
 </template>

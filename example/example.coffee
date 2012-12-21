@@ -1,9 +1,9 @@
 if Meteor.isClient
 
-  Meteor.LocalMsg.listen
+  Meteor.BrowserMsg.listen
     shout: (say) ->
       alert say
 
   Template.hello.events
     'click #shout': ->
-      Meteor.LocalMsg.send 'shout', $('#say').val()
+      Meteor.BrowserMsg.send 'shout', $('#say').val()

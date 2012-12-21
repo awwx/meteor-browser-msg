@@ -4,6 +4,6 @@
     "branch": "master"
   },
   "packages": {
-    "localmsg": {"path": ".."}
+    "browser-msg": {"path": ".."}
   }
 }

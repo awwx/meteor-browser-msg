@@ -20,7 +20,7 @@
       return Session.equals('show', 'child1');
     };
     Session.set('test_status', 'wait');
-    Template.test_localmsg_home.test_status = function() {
+    Template.test_browsermsg_home.test_status = function() {
       return Session.get('test_status');
     };
     parent_start = false;
@@ -34,7 +34,7 @@
       next_expected = 1;
       running = true;
       timeout_set = false;
-      Meteor.LocalMsg.listen({
+      Meteor.BrowserMsg.listen({
         step: function(i) {
           if (!running) {
             return;
@@ -53,7 +53,7 @@
           if (i === next_expected) {
             if (i === 20) {
               running = false;
-              localStorage.setItem('test_localmsg.child1.close', 'true');
+              localStorage.setItem('test_browsermsg.child1.close', 'true');
               return Session.set('test_status', 'successful');
             } else {
               return ++next_expected;
@@ -74,7 +74,7 @@
       }
       child1_start = true;
       storage_change = function(key, val) {
-        if (key === 'test_localmsg.child1.close' && val === 'true') {
+        if (key === 'test_browsermsg.child1.close' && val === 'true') {
           return window.close();
         }
       };
@@ -83,14 +83,14 @@
       }), false);
       _results = [];
       for (i = _i = 1; _i <= 20; i = ++_i) {
-        _results.push(Meteor.LocalMsg.send('step', i));
+        _results.push(Meteor.BrowserMsg.send('step', i));
       }
       return _results;
     };
-    Template.test_localmsg_home.created = function() {
+    Template.test_browsermsg_home.created = function() {
       return parent_startup();
     };
-    Template.test_localmsg_child1.created = function() {
+    Template.test_browsermsg_child1.created = function() {
       return child1_startup();
     };
   }

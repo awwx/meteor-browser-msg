@@ -1,9 +1,9 @@
-localmsg
-========
+browser-msg
+===========
 
 Cross browser tab messaging.
 
-localmsg allows you to send a message to all the *other* browser tabs
+browser-msg allows you to send a message to all the *other* browser tabs
 and windows open on your application in the same browser.
 
 This works entirely within the browser, so it does not rely on the
@@ -11,7 +11,7 @@ Internet or use the connection to the Meteor server.
 
 To use, register which messages you'd like to listen to:
 
-    Meteor.LocalMsg.listen({
+    Meteor.BrowserMsg.listen({
       shout: function (saythis) {
         alert(saythis);
       },
@@ -22,9 +22,9 @@ To use, register which messages you'd like to listen to:
 
 Call `send` to broadcast a message to the other browser tabs:
 
-    Meteor.LocalMsg.send('shout', 'Helllllo there!');
+    Meteor.BrowserMsg.send('shout', 'Helllllo there!');
 
-    Meteor.LocalMsg.send('calc', 300, 145);
+    Meteor.BrowserMsg.send('calc', 300, 145);
 
 The message will be received by all the other browser tabs which have
 registered to listen on the given method name.  (The message is not
@@ -41,8 +41,8 @@ you simply broadcast and listen to your own replies if desired.
 Implementation
 --------------
 
-localmsg uses the local storage "storage" event to get a message to
-the other browser tabs.  The key used is "Meteor.LocalMsg.msg".
+browser-msg uses the local storage "storage" event to get a message to
+the other browser tabs.  The key used is "Meteor.BrowserMsg.msg".
 
 In theory I imagine a browser might have an optimization where it
 would only deliver the last change event if the same storage key is
@@ -53,6 +53,6 @@ key in the same pass through the event loop,
     localStorage.setItem("foo", 456);
 
 perhaps some clever browser would send a "storage" event only for the
-second one... which would defeat the localmsg implementation.  The
+second one... which would defeat the browser-msg implementation.  The
 test in the test subdirectory checks that a browser does in fact not
 do that.

@@ -3,9 +3,9 @@
   var localStorage_message_key,
     __slice = [].slice;
 
-  localStorage_message_key = 'Meteor.LocalMsg.msg';
+  localStorage_message_key = 'Meteor.BrowserMsg.msg';
 
-  Meteor.LocalMsg = {
+  Meteor.BrowserMsg = {
     _listeners: {},
     listen: function(callbacks) {
       var callback, name;
@@ -30,7 +30,7 @@
     if (event.key === localStorage_message_key) {
       val = event.newValue;
       _ref = JSON.parse(val.substr(val.indexOf(':') + 1)), name = _ref[0], arg = 2 <= _ref.length ? __slice.call(_ref, 1) : [];
-      if (typeof (_base = Meteor.LocalMsg._listeners)[name] === "function") {
+      if (typeof (_base = Meteor.BrowserMsg._listeners)[name] === "function") {
         _base[name].apply(_base, arg);
       }
       return void 0;
