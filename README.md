@@ -63,5 +63,6 @@ Unsupported Browsers
 
 Chrome on iOS does not implement the local storage event.
 
-IE 6 and IE 7 do not implement local storage.  (IE's userData feature
-stores data but does not include a cross-tab storage change event).
+IE 6 and IE 7 do not implement local storage.  (And the userData
+feature, which can be used as a polyfill for storing data, does not
+include a cross-tab storage change event).
