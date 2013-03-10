@@ -44,10 +44,10 @@ Implementation
 browser-msg uses the local storage "storage" event to get a message to
 the other browser tabs.  The key used is "Meteor.BrowserMsg.msg".
 
-In theory I imagine a browser might have an optimization where it
-would only deliver the last change event if the same storage key is
-changed more than once.  That is, if two changes were made to the same
-key in the same pass through the event loop,
+A browser might have an optimization where it would only deliver the
+last change event if the same storage key is changed more than once.
+That is, if two changes were made to the same key in the same pass
+through the event loop,
 
     localStorage.setItem("foo", 123);
     localStorage.setItem("foo", 456);
@@ -56,3 +56,12 @@ perhaps some clever browser would send a "storage" event only for the
 second one... which would defeat the browser-msg implementation.  The
 test in the test subdirectory checks that a browser does in fact not
 do that.
+
+
+Unsupported Browsers
+--------------------
+
+Chrome on iOS does not implement the local storage event.
+
+IE 6 and IE 7 do not implement local storage.  (IE's userData feature
+stores data but does not include a cross-tab storage change event).
