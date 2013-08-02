@@ -11,7 +11,7 @@ Internet or use the connection to the Meteor server.
 
 ## Version
 
-1.0.0
+1.0.1
 
 
 ## API
