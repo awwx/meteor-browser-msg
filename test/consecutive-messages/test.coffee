@@ -28,7 +28,7 @@ if Meteor.isClient
     running = true
     timeout_set = false
 
-    Meteor.BrowserMsg.listen
+    BrowserMsg.listen
       step: (i) ->
 
         return unless running
@@ -78,7 +78,7 @@ if Meteor.isClient
     )
 
     for i in [1..20]
-      Meteor.BrowserMsg.send 'step', i
+      BrowserMsg.send 'step', i
 
   Template.test_browsermsg_home.created = ->
     parent_startup()

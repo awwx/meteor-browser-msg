@@ -1,8 +1,13 @@
 {
   "name": "browser-msg",
+
   "description": "cross browser tab messaging",
+
   "homepage": "https://github.com/awwx/meteor-browser-msg#readme",
+
   "author": "Andrew Wilcox",
-  "version": "0.0.2",
+
+  "version": "1.0.0rc1",
+
   "git": "https://github.com/awwx/meteor-browser-msg.git"
 }

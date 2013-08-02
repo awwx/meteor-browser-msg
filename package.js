@@ -3,5 +3,9 @@ Package.describe({
 })
 
 Package.on_use(function (api) {
-  api.add_files(['browser-msg.js'], 'client');
+  api.use('coffeescript');
+  api.use('ejson');
+  if (api.export)
+    api.export('BrowserMsg', 'client');
+  api.add_files(['browser-msg.coffee'], 'client');
 });
