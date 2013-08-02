@@ -2,8 +2,8 @@
 
 Cross browser tab messaging.
 
-browser-msg allows you to send a message to all the *other* browser tabs
-and windows open on your application in the same browser.
+browser-msg allows you to send a message to the other browser windows
+and tabs open on your application in the same browser.
 
 This works entirely within the browser, so it does not rely on the
 Internet or use the connection to the Meteor server.
@@ -11,7 +11,7 @@ Internet or use the connection to the Meteor server.
 
 ## Version
 
-1.0.0rc1
+1.0.0
 
 
 ## API
