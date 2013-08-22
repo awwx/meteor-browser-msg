@@ -8,15 +8,39 @@ and tabs open on your application in the same browser.
 This works entirely within the browser, so it does not rely on the
 Internet or use the connection to the Meteor server.
 
+Messages are protected by the browser's
+[same origin policy](https://en.wikipedia.org/wiki/Same_origin_policy).
+That is, messages will not be delivered to windows open on a different
+hostname or port number; and windows open on a different hostname or
+port number will not be able to listen in on messages sent from your
+application.
+
 
 ## Version
 
-1.0.1
+1.1.0
+
+This version works with Meteor 0.6.5 and above only.  (Use browser-msg
+version 1.0.1 for older Meteor versions).
 
 
 ## API
 
-To use, register which messages you'd like to listen to:
+### BrowserMsg.supported
+
+`BrowserMsg.supported`  *client*
+
+A constant, `true` or `false`.  True if this browser supports
+cross-window messaging.  When false, you can still call
+`BrowserMsg.listen` and `BrowserMsg.send`, but it won't have any
+effect.
+
+
+### BrowserMsg.listen
+
+`BrowserMsg.listen(methods)`  *client*
+
+Register which messages you'd like to listen to:
 
     BrowserMsg.listen({
       shout: function (saythis) {
@@ -26,6 +50,11 @@ To use, register which messages you'd like to listen to:
         console.log(a * 2 + b);
       }
     });
+
+
+### BrowserMsg.send
+
+`BrowserMsg.send(topic [, arg, arg...])` *client*
 
 Call `send` to broadcast a message to the other browser tabs:
 
@@ -40,15 +69,22 @@ not delivered to the browser window which sends the message).
 Messages are serialized using `EJSON.stringify`, and so can contain any
 [EJSON-compatible value](http://docs.meteor.com/#ejson).
 
-Messages are only delivered to windows running the same application,
-as determined by the browser's
-[same origin policy](https://en.wikipedia.org/wiki/Same_origin_policy).
+
+## Unsupported Browsers
+
+These browsers don't support cross-window messaging (and
+`BrowserMsg.supported` will be `false`).
+
+* IE 8 and older.
+
+* Chrome for iOS devices such as the iPhone and the iPad.  (The
+  desktop Chrome browser works fine!)
 
 
 ## Implementation
 
-browser-msg uses the local storage "storage" event to get a message to
-the other browser tabs.  The key used is "Meteor.BrowserMsg.msg".
+browser-msg uses the local storage "storage" event to send a message
+to the other browser tabs.  The key used is "Meteor.BrowserMsg.msg".
 
 
 ## Tests
@@ -62,21 +98,23 @@ same pass through the event loop,
     localStorage.setItem("foo", 456);
 
 perhaps a browser would send a "storage" event only for the second
-one... which would defeat the browser-msg implementation.  The
-consecutive-messages test in the test subdirectory checks that all
+one... which would defeat the browser-msg implementation.
+
+The consecutive-messages test in the test subdirectory checks that all
 messages are in fact delivered.
-
-
-## Unsupported Browsers
-
-Chrome on iOS does not implement the local storage event.
-
-IE 6 and IE 7 do not implement local storage.  (And the userData
-feature, which can be used as a polyfill for storing data, does not
-include a cross-tab storage change event).
 
 
 ## Support
 
-Support my work by making a weekly contribution of your choice with
-[Gittip](https://www.gittip.com/awwx/).
+If you find this package useful,
+[donate](https://www.gittip.com/awwx/) to support its ongoing
+maintenance and development...
+
+and avoid the dreaded dead package syndrome!  :-)
+
+Not sure what to give? While the amount is entirely up to you, a
+weekly contribution of $1 is reasonable if you're relying on this
+package for something important, such as a commercial
+endeavor.  25&cent; is a cool amount for a personal contribution.
+
+Thank you!
