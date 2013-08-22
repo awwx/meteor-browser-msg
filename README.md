@@ -108,13 +108,12 @@ messages are in fact delivered.
 
 If you find this package useful,
 [donate](https://www.gittip.com/awwx/) to support its ongoing
-maintenance and development...
-
-and avoid the dreaded dead package syndrome!  :-)
+maintenance and development... and avoid the dreaded *dead package
+syndrome*!  :-)
 
 Not sure what to give? While the amount is entirely up to you, a
-weekly contribution of $1 is reasonable if you're relying on this
-package for something important, such as a commercial
-endeavor.  25&cent; is a cool amount for a personal contribution.
+weekly contribution of $1 is useful if you're relying on this package
+for something important.  25&cent; is a cool amount for a personal
+contribution.
 
 Thank you!
