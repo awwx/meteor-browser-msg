@@ -104,16 +104,21 @@ The consecutive-messages test in the test subdirectory checks that all
 messages are in fact delivered.
 
 
-## Support
+## Donate
 
-If you find this package useful,
-[donate](https://www.gittip.com/awwx/) to support its ongoing
-maintenance and development... and avoid the dreaded *dead package
-syndrome*!  :-)
+An easy and effective way to support the continued maintenance of this
+package and the development of new and useful packages is to [donate
+through Gittip](https://www.gittip.com/awwx/).
 
-Not sure what to give? While the amount is entirely up to you, a
-weekly contribution of $1 is useful if you're relying on this package
-for something important.  25&cent; is a cool amount for a personal
-contribution.
+Gittip is a [platform for sustainable
+crowd-funding](https://www.gittip.com/about/faq.html).
 
-Thank you!
+Help build an ecosystem of well maintained, quality Meteor packages by
+joining the
+[Gittip Meteor Community](https://www.gittip.com/for/meteor/).
+
+
+## Hire
+
+Need support, debugging, or development for your project?  You can
+[hire me](http://awwx.ws/hire-me) to help out.
